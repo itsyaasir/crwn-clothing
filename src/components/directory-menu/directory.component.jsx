@@ -46,13 +46,9 @@ class Directory extends React.Component {
   render() {
     return (
       <div className='directory-menu'>
-        {this.state.sections.map(({ title, id, imageUrl, size }) => (
-          <MenuItem
-            title={title.toUpperCase()}
-            key={id}
-            imageUrl={imageUrl}
-            size={size}
-          />
+        {/* ...someOtherProps is a spread operator , since the params are the same , you can use the spread operator at once. */}
+        {this.state.sections.map(({ id, ...someOtherProps }) => (
+          <MenuItem key={id} {...someOtherProps} />
         ))}
       </div>
     );
